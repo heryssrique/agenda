@@ -7,10 +7,10 @@ const Pool = require('pg').Pool;
 //3- Fechar a Conexão
 
 const pool = new Pool({
-    user:'lrnvydpyoedmbk',
-    password:'4790e37632ed49bad9ab1ddcbe2d1dfd19ff85ee58b7e55791950e33cd44e1a4',
-    host:'ec2-18-214-211-47.compute-1.amazonaws.com',
-    database:'dd4i6bq329eolg',
+     user:'kkvmltqygkvcnf',
+    password:'52680f75a1092e20fd407a7e0b17eddd3e55d04a58b073c7d4ea4ea0d3a8bedc',
+    host:'ec2-35-169-254-43.compute-1.amazonaws.com',
+    database:'d7dkc9ht6gmvpe',
     port: 5432,
     ssl: {rejectUnauthorized: false}
 })
