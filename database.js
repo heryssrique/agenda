@@ -15,51 +15,51 @@ const pool = new Pool({
     ssl: {rejectUnauthorized: false}
 })
 
-// const sql = `
-// CREATE TABLE IF NOT EXISTS tarefas
-//     (
-//          id serial primary key,
-//          disciplina varchar(100) not null,
-//          date varchar (20) not null,
-//          entrega boolean not null
-//     )
+const sql = `
+ CREATE TABLE IF NOT EXISTS tarefas
+     (
+          id serial primary key,
+          disciplina varchar(100) not null,
+          date varchar (20) not null,
+          entrega boolean not null
+     )
 
-// `;
-//  pool.query(sql, function(error, result) {
-//   if(error)
-//     throw error
+ `;
+ /* pool.query(sql, function(error, result) {
+   if(error)
+     throw error
 
-//      console.log('Tabela criada com sucesso!');
+      console.log('Tabela criada com sucesso!');
 
-//  })    
-
-//  INSERT
-//  const sql_insert = `
-//         INSERT INTO tarefas (disciplina, date, entrega)
-//          VALUES
-//              ('linguagem de Programação 3', '02/06/2020', false)
+  })    
+*/
+  /*/INSERT
+  const sql_insert = `
+         INSERT INTO tarefas (disciplina, date, entrega)
+          VALUES
+              ('linguagem de Programação 3', '02/06/2020', false)
             
 
-//   `;
+   `;
 
-//   pool.query(sql_insert, function(error, result){
-//      if(error)
-//       throw error;
+   pool.query(sql_insert, function(error, result){
+      if(error)
+       throw error;
 
-//       console.log(result.rowCount);
+       console.log(result.rowCount);
 
-//   })
+   })
+*/
+   //SELECT
 
-//   SELECT
+  const sql_select = `SELECT * FROM tarefas`;
 
-//  const sql_select = `SELECT * FROM tarefas`;
+  pool.query (sql_select, function(error, result){
+      if(error)
+      throw error;
 
-//  pool.query (sql_select, function(error, result){
-//      if(error)
-//      throw error;
+      console.log(result.rows);
 
-//      console.log(result.rows);
-
-//  })
+  })
 
  
