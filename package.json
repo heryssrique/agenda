@@ -1,10 +1,10 @@
 {
   "name": "template-backend",
   "version": "1.0.0",
-  "description": "Template backend para criação de projetos NodeJS",
+  "description": "Projeto NodeS",
   "main": "server.js",
-  "repository": "https://github.com/professordezani/template-backend.git",
-  "author": "Prof. Dr. Henrique Dezani <dezani@fatecriopreto.edu.br>",
+  "repository": "https://github.com/heryssrique/tarefas.git",
+  "author": "Helio Henrique",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon server.js",
