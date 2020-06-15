@@ -14,7 +14,7 @@ const pool = new Pool({
     port: 5432,
     ssl: {rejectUnauthorized: false}
 })
-
+/*
 const sql = `
  CREATE TABLE IF NOT EXISTS agendas
      (
@@ -25,7 +25,7 @@ const sql = `
      )
 
  `;
-  pool.query(sql, function(error, result) {
+ /* pool.query(sql, function(error, result) {
    if(error)
      throw error
 
@@ -49,7 +49,7 @@ const sql = `
        console.log(result.rowCount);
 
    })
-/*
+
    //SELECT
 
   const sql_select = `SELECT * FROM agendas`;
