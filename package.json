@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Projeto NodeS",
   "main": "server.js",
-  "repository": "https://github.com/heryssrique/tarefas.git",
+  "repository": "https://github.com/heryssrique/agenda.git",
   "author": "Helio Henrique",
   "license": "MIT",
   "scripts": {
