@@ -16,12 +16,12 @@ const pool = new Pool({
 })
 
 const sql = `
- CREATE TABLE IF NOT EXISTS tarefas
+ CREATE TABLE IF NOT EXISTS agenda
      (
           id serial primary key,
-          disciplina varchar(100) not null,
+          titulo varchar(100) not null,
           date varchar (20) not null,
-          entrega boolean not null
+          status boolean not null
      )
 
  `;
@@ -35,7 +35,7 @@ const sql = `
 */
   /*/INSERT
   const sql_insert = `
-         INSERT INTO tarefas (disciplina, date, entrega)
+         INSERT INTO agenda (titulo, date, status)
           VALUES
               ('linguagem de Programação 3', '02/06/2020', false)
             
@@ -52,7 +52,7 @@ const sql = `
 */
    //SELECT
 
-  const sql_select = `SELECT * FROM tarefas`;
+  const sql_select = `SELECT * FROM agenda`;
 
   pool.query (sql_select, function(error, result){
       if(error)
