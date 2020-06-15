@@ -20,21 +20,21 @@ server.use(express.json());
 
 //GET
 server.get('/agenda', async function(request, response) {
-   result = await pool.query('SELECT * FROM agenda');
+   result = await pool.query('SELECT * FROM agendas');
 
    return response.json(result.rows);
 })
 
 server.get('/agenda/search', async function(request, response) {
     const titulo = request.query.titulo;
-    const sql = `SELECT * FROM agenda WHERE titulo ILIKE $1`;
+    const sql = `SELECT * FROM agendas WHERE titulo ILIKE $1`;
     const result = await pool.query(sql, ["%" +  titulo + "%"]);
     return response.json(result.rows);
 })
 
 server.get('/agenda/:id', async function(request, response) {
     const id = request.params.id;
-    const sql = `SELECT * FROM agenda WHERE id = $1`
+    const sql = `SELECT * FROM agendas WHERE id = $1`
     const result = await pool.query(sql, [id]);
     return response.json(result.rows);
 })
@@ -45,7 +45,7 @@ server.post('/agenda', async function(request, response) {
     const titulo = request.body.titulo;
     const date = request.body.date;
    // const entregue = request.body.stats;
-    const sql= `INSERT INTO agenda (titulo, date, stats) VALUES ($1, $2, $3)`;
+    const sql= `INSERT INTO agendas (titulo, date, stats) VALUES ($1, $2, $3)`;
     await pool.query(sql, [titulo, date, false]);
     return response.status(204).send();
 })
@@ -54,7 +54,7 @@ server.post('/agenda', async function(request, response) {
 //DELETE
 server.delete('/agenda/:id', async function(request, response) {
     const id = request.params.id;
-    const sql = `DELETE FROM agenda WHERE id = $1`;
+    const sql = `DELETE FROM agendas WHERE id = $1`;
     await pool.query(sql, [id]);
     return response.status(204).send();
 })
@@ -64,7 +64,7 @@ server.delete('/agenda/:id', async function(request, response) {
 server.put('/agenda/:id', async function(request, response) {
     const id = request.params.id;
     const { titulo, date, stats} = request.body;
-    const sql = `UPDATE agenda SET titulo = $1, date = $2, stats = $3 WHERE id = $4`;
+    const sql = `UPDATE agendas SET titulo = $1, date = $2, stats = $3 WHERE id = $4`;
     await pool.query(sql, [titulo, date, stats, id]);
     return response.status(204).send();
 })
@@ -73,14 +73,14 @@ server.put('/agenda/:id', async function(request, response) {
 //UPDATE Do Entregue
 server.patch('/agenda/:id/stats', async function(request, response) {
     const id = request.params.id;
-    const sql = `UPDATE agenda SET stats = true WHERE id = $1`;
+    const sql = `UPDATE agendas SET stats = true WHERE id = $1`;
     await pool.query(sql, [id]);
     return response.status(204).send();
 })
 
 server.patch('/agenda/:id/pendente', async function(request, response) {
     const id = request.params.id;
-    const sql = `UPDATE agenda SET stats = false WHERE id = $1`;
+    const sql = `UPDATE agendas SET stats = false WHERE id = $1`;
     await pool.query(sql, [id]);
     return response.status(204).send();
 });
