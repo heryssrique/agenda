@@ -16,28 +16,28 @@ const pool = new Pool({
 })
 
 const sql = `
- CREATE TABLE IF NOT EXISTS agenda
+ CREATE TABLE IF NOT EXISTS agendas
      (
           id serial primary key,
           titulo varchar(100) not null,
           date varchar (20) not null,
-          status boolean not null
+          stats boolean not null
      )
 
  `;
- /* pool.query(sql, function(error, result) {
+  pool.query(sql, function(error, result) {
    if(error)
      throw error
 
       console.log('Tabela criada com sucesso!');
 
   })    
-*/
-  /*/INSERT
+
+  //INSERT
   const sql_insert = `
-         INSERT INTO agenda (titulo, date, status)
+         INSERT INTO agendas (titulo, date, stats)
           VALUES
-              ('linguagem de Programação 3', '02/06/2020', false)
+              ('Prova LPIII', '02/06/2020', false)
             
 
    `;
@@ -49,10 +49,10 @@ const sql = `
        console.log(result.rowCount);
 
    })
-*/
+/*
    //SELECT
 
-  const sql_select = `SELECT * FROM agenda`;
+  const sql_select = `SELECT * FROM agendas`;
 
   pool.query (sql_select, function(error, result){
       if(error)
@@ -61,5 +61,5 @@ const sql = `
       console.log(result.rows);
 
   })
-
+*/
  
