@@ -28,7 +28,7 @@ server.get('/agenda', async function(request, response) {
 server.get('/agenda/search', async function(request, response) {
     const titulo = request.query.titulo;
     const sql = `SELECT * FROM agenda WHERE titulo ILIKE $1`;
-    const result = await pool.query(sql, ["%" +  disciplina + "%"]);
+    const result = await pool.query(sql, ["%" +  titulo + "%"]);
     return response.json(result.rows);
 })
 
@@ -44,7 +44,7 @@ server.get('/agenda/:id', async function(request, response) {
 server.post('/agenda', async function(request, response) {
     const titulo = request.body.titulo;
     const date = request.body.date;
-   // const entregue = request.body.entregue;
+   // const entregue = request.body.stats;
     const sql= `INSERT INTO agenda (titulo, date, stats) VALUES ($1, $2, $3)`;
     await pool.query(sql, [titulo, date, false]);
     return response.status(204).send();
